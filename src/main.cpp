@@ -35,7 +35,7 @@ int main() {
 
     auto stop = high_resolution_clock::now(); // Get the current time after counting finishes
     auto duration = duration_cast<milliseconds>(stop - start); // Calculate the duration of counting
-    
+
     if (maxReward != 0) {
         cout << "Max sequence: ";
         for (int i = 0; i < maxRoute.size(); ++i){
@@ -46,8 +46,9 @@ int main() {
             cout << maxRouteLocations[i].col+1 <<","<<maxRouteLocations[i].row+1 << endl;
         }
         cout << "Reward: " << maxReward << endl;
+        cout << "Processing time: " << duration.count() << " milliseconds" << endl; // Print the processing time
     }
-    cout << "Processing time: " << duration.count() << " milliseconds" << endl; // Print the processing time
+    
     
     string n;
     cout << "\nApakah ingin menyimpan solusi? (y/n)" << endl;
@@ -71,20 +72,21 @@ int main() {
             cout << "Gagal membuka file untuk penulisan" << endl;
             return 1;
         }
+        if (maxReward != 0) {
+            file << maxReward << endl;
 
-        file << maxReward << endl;
+            for (int i = 0; i < maxRoute.size(); ++i) {
+                file << maxRoute[i] << " ";
+            }
 
-        for (int i = 0; i < maxRoute.size(); ++i) {
-            file << maxRoute[i] << " ";
+            file << endl;
+
+            for (int i = 0; i < maxRouteLocations.size(); ++i) {
+                file << maxRouteLocations[i].col +1 << ", " << maxRouteLocations[i].row + 1 << endl;
+            }
+
+            file << endl << duration.count() << " ms";
         }
-
-        file << endl;
-
-        for (int i = 0; i < maxRouteLocations.size(); ++i) {
-            file << maxRouteLocations[i].col +1 << ", " << maxRouteLocations[i].row + 1 << endl;
-        }
-
-        file << endl << duration.count() << " ms";
         file.close();
     }
     return 0;
