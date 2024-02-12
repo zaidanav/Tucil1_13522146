@@ -31,7 +31,7 @@ Install C++
 
 ## Usage
 
-Run program pada C:\Users\HP Omen\Documents\GitHub\Tucil1_13522146\src\main.cpp
+Run program at directory C:\Users\HP Omen\Documents\GitHub\Tucil1_13522146\src\main.cpp
 
 ## Contributing
 
