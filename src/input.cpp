@@ -98,11 +98,11 @@ Masukan file() {
     Masukan input;
     string filename, line;
     int temp;
-
+    string stringPath="../test/";
     cout << "Input file name (without .txt): ";
     cin >> filename;
     filename += ".txt";
-    ifstream file(filename);
+    ifstream file(stringPath + filename);
 
     while (!file.is_open())
     {

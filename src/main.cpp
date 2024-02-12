@@ -35,16 +35,18 @@ int main() {
 
     auto stop = high_resolution_clock::now(); // Get the current time after counting finishes
     auto duration = duration_cast<milliseconds>(stop - start); // Calculate the duration of counting
-
-    cout << "Max sequence: ";
-    for (int i = 0; i < maxRoute.size(); ++i){
-        cout << maxRoute[i] << " ";
+    
+    if (maxReward != 0) {
+        cout << "Max sequence: ";
+        for (int i = 0; i < maxRoute.size(); ++i){
+            cout << maxRoute[i] << " ";
+        }
+        cout << endl << "Location: "<< endl;
+        for (int i = 0; i < maxRoute.size(); ++i){
+            cout << maxRouteLocations[i].col+1 <<","<<maxRouteLocations[i].row+1 << endl;
+        }
+        cout << "Reward: " << maxReward << endl;
     }
-    cout << endl << "Location: "<< endl;
-    for (int i = 0; i < maxRoute.size(); ++i){
-        cout << maxRouteLocations[i].col+1 <<","<<maxRouteLocations[i].row+1 << endl;
-    }
-    cout << "Reward: " << maxReward << endl;
     cout << "Processing time: " << duration.count() << " milliseconds" << endl; // Print the processing time
     
     string n;
@@ -81,7 +83,7 @@ int main() {
         for (int i = 0; i < maxRouteLocations.size(); ++i) {
             file << maxRouteLocations[i].col +1 << ", " << maxRouteLocations[i].row + 1 << endl;
         }
-        
+
         file << endl << duration.count() << " ms";
         file.close();
     }
