@@ -31,11 +31,8 @@ Install C++
 
 ## Usage
 
-Run program at directory C:\Users\HP Omen\Documents\GitHub\Tucil1_13522146\src\main.cpp
-
-## Contributing
-
-Just request
+1. Run program at directory C:\Users\HP Omen\Documents\GitHub\Tucil1_13522146\src\main.cpp
+2. Using cd to bin in terminal, then type ./main
 
 ## License
 
